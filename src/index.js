@@ -6,7 +6,7 @@ module.exports = {
       typography: {
         h1: {
           fontSize: defaultTheme.fontSize['4xl'],
-          fontWeight: defaultTheme.fontWeight['bold'],
+          fontWeight: defaultTheme.fontWeight.bold,
           color: defaultTheme.colors.gray[900],
           lineHeight: defaultTheme.lineHeight.none
         },
@@ -15,7 +15,7 @@ module.exports = {
         },
         h2: {
           fontSize: defaultTheme.fontSize['2xl'],
-          fontWeight: defaultTheme.fontWeight['bold'],
+          fontWeight: defaultTheme.fontWeight.medium,
           color: defaultTheme.colors.gray[900],
           lineHeight: defaultTheme.lineHeight.tight
         },
@@ -26,8 +26,8 @@ module.exports = {
           marginTop: defaultTheme.spacing[4],
         },
         h3: {
-          fontSize: defaultTheme.fontSize['xl'],
-          fontWeight: defaultTheme.fontWeight['bold'],
+          fontSize: defaultTheme.fontSize.lg,
+          fontWeight: defaultTheme.fontWeight.medium,
           color: defaultTheme.colors.gray[900],
           lineHeight: defaultTheme.lineHeight.tight
         },
@@ -41,8 +41,8 @@ module.exports = {
           marginTop: defaultTheme.spacing[2],
         },
         h4: {
-          fontSize: defaultTheme.fontSize['base'],
-          fontWeight: defaultTheme.fontWeight['bold'],
+          fontSize: defaultTheme.fontSize.base,
+          fontWeight: defaultTheme.fontWeight.semibold,
           color: defaultTheme.colors.gray[900],
           lineHeight: defaultTheme.lineHeight.normal
         },
@@ -56,7 +56,7 @@ module.exports = {
           marginTop: defaultTheme.spacing[2],
         },
         p: {
-          fontSize: defaultTheme.fontSize.base,
+          fontSize: defaultTheme.fontSize['sm'],
           fontWeight: defaultTheme.fontWeight.normal,
           color: defaultTheme.colors.gray[800],
           lineHeight: defaultTheme.lineHeight.relaxed,
@@ -65,12 +65,12 @@ module.exports = {
           marginTop: defaultTheme.spacing[4]
         },
         strong: {
-          fontWeight: defaultTheme.fontWeight.bold,
+          fontWeight: defaultTheme.fontWeight.semibold,
           color: defaultTheme.colors.gray[900],
         },
         a: {
           fontWeight: defaultTheme.fontWeight.medium,
-          color: defaultTheme.colors.blue[600],
+          color: defaultTheme.colors.blue[700],
         },
         'a:hover': {
           textDecoration: 'underline',
@@ -112,7 +112,7 @@ module.exports = {
           marginTop: defaultTheme.spacing[2],
         },
         li: {
-          fontSize: defaultTheme.fontSize.base,
+          fontSize: defaultTheme.fontSize.sm,
           fontWeight: defaultTheme.fontWeight.normal,
           color: defaultTheme.colors.gray[800],
           lineHeight: defaultTheme.lineHeight.relaxed,
@@ -143,11 +143,17 @@ module.exports = {
           marginTop: defaultTheme.spacing[4],
         },
         pre: {
-          backgroundColor: defaultTheme.colors.gray[200],
+          borderRadius: defaultTheme.borderRadius.md,
+          backgroundColor: defaultTheme.colors.gray[800],
+          color: defaultTheme.colors.white,
+          fontSize: '.875em', // Use `em` so change is relative to current font size
           paddingTop: defaultTheme.spacing[3],
           paddingRight: defaultTheme.spacing[4],
           paddingBottom: defaultTheme.spacing[3],
           paddingLeft: defaultTheme.spacing[4],
+          overflowX: "auto",
+          '-webkit-font-smoothing': 'subpixel-antialiased',
+          '-moz-osx-font-smoothing': 'auto',
         },
         '* + pre': {
           marginTop: defaultTheme.spacing[4],
@@ -156,15 +162,25 @@ module.exports = {
           marginTop: defaultTheme.spacing[4],
         },
         'pre code': {
-          fontSize: defaultTheme.fontSize.sm,
+          backgroundColor: defaultTheme.colors.transparent,
+          color: 'currentColor',
+          fontSize: '.875em', // Use `em` so change is relative to current font size
           padding: 0,
+          '-webkit-font-smoothing': 'subpixel-antialiased',
+          '-moz-osx-font-smoothing': 'auto',
+        },
+        hr: {
+          borderTopWidth: defaultTheme.borderWidth.default,
+          borderColor: defaultTheme.colors.gray[500],
+          marginTop: defaultTheme.spacing[10],
+          marginBottom: defaultTheme.spacing[10],
         }
       }
     },
   },
   handler: function ({ addComponents, theme }) {
     addComponents({
-      '.rich-text': theme('typography')
+      '.prose': theme('typography')
     })
   }
 }
